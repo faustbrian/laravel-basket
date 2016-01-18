@@ -3,7 +3,7 @@
     "description": "Powerful Basket for Laravel 5",
     "require": {
         "php": ">=5.5.9",
-        "draperstudio/basket": "~1.0"
+        "draperstudio/basket": "^1.0"
     },
     "autoload": {
         "psr-4": {
