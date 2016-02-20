@@ -1,6 +1,6 @@
 # Laravel Basket
 
-Check https://github.com/draperstudioBasket to see how the underlying Basket works.
+Check https://github.com/draperstudio/Basket to see how the underlying Basket works.
 
 ## Installation
 
