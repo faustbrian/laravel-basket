@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of Laravel Basket.
+ *
+ * (c) DraperStudio <hello@draperstudio.tech>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace DraperStudio\LaravelBasket;
 
 use Closure;
@@ -25,23 +34,54 @@ use Illuminate\Session\SessionManager;
 use Money\Currency;
 use Money\Money;
 
+/**
+ * Class Basket.
+ *
+ * @author DraperStudio <hello@draperstudio.tech>
+ */
 class Basket
 {
+    /**
+     * @var string
+     */
     private $prefix = 'basket_';
 
+    /**
+     * @var
+     */
     private $session;
 
+    /**
+     * @var
+     */
     private $basket;
 
+    /**
+     * @var
+     */
     private $identifier;
 
+    /**
+     * @var
+     */
     private $order;
 
+    /**
+     * Basket constructor.
+     *
+     * @param SessionManager $session
+     */
     public function __construct(SessionManager $session)
     {
         $this->setSession($session);
     }
 
+    /**
+     * @param $identifier
+     * @param Jurisdiction $jurisdiction
+     *
+     * @return $this
+     */
     public function setup($identifier, Jurisdiction $jurisdiction)
     {
         $this->setBasket(new BaseBasket($jurisdiction));
@@ -51,6 +91,11 @@ class Basket
         return $this;
     }
 
+    /**
+     * @param $identifier
+     *
+     * @return $this
+     */
     public function load($identifier)
     {
         $this->setIdentifier($identifier);
@@ -68,21 +113,35 @@ class Basket
         return $this;
     }
 
+    /**
+     * @return mixed
+     */
     public function products()
     {
         return $this->basket->products();
     }
 
+    /**
+     * @return mixed
+     */
     public function count()
     {
         return $this->basket->count();
     }
 
+    /**
+     * @param $sku
+     *
+     * @return mixed
+     */
     public function pick($sku)
     {
         return $this->basket->pick($sku);
     }
 
+    /**
+     * @param Product $product
+     */
     public function add(Product $product)
     {
         $this->basket->add($product);
@@ -90,6 +149,10 @@ class Basket
         $this->reconcile();
     }
 
+    /**
+     * @param $sku
+     * @param Closure $action
+     */
     public function update($sku, Closure $action)
     {
         $this->basket->update($sku, $action);
@@ -97,6 +160,9 @@ class Basket
         $this->reconcile();
     }
 
+    /**
+     * @param $sku
+     */
     public function remove($sku)
     {
         $this->basket->remove($sku);
@@ -104,6 +170,9 @@ class Basket
         $this->reconcile();
     }
 
+    /**
+     * @param Discount $discount
+     */
     public function discount(Discount $discount)
     {
         $this->basket->discount($discount);
@@ -111,11 +180,19 @@ class Basket
         $this->reconcile();
     }
 
+    /**
+     * @param $sku
+     *
+     * @return mixed
+     */
     public function has($sku)
     {
         return $this->basket->products()->containsKey($sku);
     }
 
+    /**
+     * @param $sku
+     */
     public function increment($sku)
     {
         return $this->update($sku, function ($product) {
@@ -123,6 +200,9 @@ class Basket
         });
     }
 
+    /**
+     * @param $sku
+     */
     public function decrement($sku)
     {
         return $this->update($sku, function ($product) {
@@ -130,6 +210,10 @@ class Basket
         });
     }
 
+    /**
+     * @param $sku
+     * @param $quantity
+     */
     public function quantity($sku, $quantity)
     {
         return $this->update($sku, function ($product) use ($quantity) {
@@ -137,61 +221,97 @@ class Basket
         });
     }
 
+    /**
+     * @return mixed
+     */
     public function getRate()
     {
         return $this->basket->rate();
     }
 
+    /**
+     * @return mixed
+     */
     public function getCurrency()
     {
         return $this->basket->currency();
     }
 
+    /**
+     * @return mixed
+     */
     public function getDelivery()
     {
         return $this->order['delivery'];
     }
 
+    /**
+     * @return mixed
+     */
     public function getDiscount()
     {
         return $this->order['discount'];
     }
 
+    /**
+     * @return mixed
+     */
     public function getProductsCount()
     {
         return $this->order['products_count'];
     }
 
+    /**
+     * @return mixed
+     */
     public function getSubtotal()
     {
         return $this->order['subtotal'];
     }
 
+    /**
+     * @return mixed
+     */
     public function getTaxable()
     {
         return $this->order['taxable'];
     }
 
+    /**
+     * @return mixed
+     */
     public function getTax()
     {
         return $this->order['tax'];
     }
 
+    /**
+     * @return mixed
+     */
     public function getTotal()
     {
         return $this->order['total'];
     }
 
+    /**
+     * @return mixed
+     */
     public function getValue()
     {
         return $this->order['value'];
     }
 
+    /**
+     * @return mixed
+     */
     public function getProducts()
     {
         return $this->order['products'];
     }
 
+    /**
+     * @return mixed
+     */
     public function reconcile()
     {
         $reconciler = new DefaultReconciler();
@@ -219,6 +339,12 @@ class Basket
         return $this->getOrder();
     }
 
+    /**
+     * @param $sku
+     * @param $name
+     * @param $price
+     * @param array $actions
+     */
     public function addQuick($sku, $name, $price, $actions = [])
     {
         $price = new Money($price, $this->jurisdiction->currency());
@@ -231,6 +357,10 @@ class Basket
         $this->reconcile();
     }
 
+    /**
+     * @param $sku
+     * @param array $actions
+     */
     public function updateQuick($sku, $actions = [])
     {
         $this->basket->update($sku, $this->productClosure($actions));
@@ -238,66 +368,107 @@ class Basket
         $this->reconcile();
     }
 
+    /**
+     * @return string
+     */
     private function getPrefix()
     {
         return $this->prefix;
     }
 
+    /**
+     * @param $prefix
+     */
     public function setPrefix($prefix)
     {
         $this->prefix = $prefix;
     }
 
+    /**
+     * @return mixed
+     */
     private function getIdentifier()
     {
         return $this->identifier;
     }
 
+    /**
+     * @param $identifier
+     */
     public function setIdentifier($identifier)
     {
         $this->identifier = $this->prefix.$identifier;
     }
 
+    /**
+     * @return mixed
+     */
     private function getSession()
     {
         return $this->session;
     }
 
+    /**
+     * @param SessionManager $session
+     */
     private function setSession(SessionManager $session)
     {
         $this->session = $session;
     }
 
+    /**
+     * @return mixed
+     */
     private function getJurisdiction()
     {
         return $this->jurisdiction;
     }
 
+    /**
+     * @param Jurisdiction $jurisdiction
+     */
     private function setJurisdiction(Jurisdiction $jurisdiction)
     {
         $this->jurisdiction = $jurisdiction;
     }
 
+    /**
+     * @return mixed
+     */
     private function getBasket()
     {
         return $this->basket;
     }
 
+    /**
+     * @param BaseBasket $basket
+     */
     private function setBasket(BaseBasket $basket)
     {
         $this->basket = $basket;
     }
 
+    /**
+     * @return mixed
+     */
     private function getOrder()
     {
         return $this->order;
     }
 
+    /**
+     * @param array $order
+     */
     private function setOrder(array $order)
     {
         $this->order = $order;
     }
 
+    /**
+     * @param $actions
+     *
+     * @return Closure
+     */
     private function productClosure($actions)
     {
         $currency = $this->jurisdiction->currency();
@@ -319,6 +490,9 @@ class Basket
         };
     }
 
+    /**
+     *
+     */
     private function saveBasket()
     {
         $this->session->put($this->getIdentifier(), [

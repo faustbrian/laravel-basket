@@ -9,14 +9,16 @@
  * file that was distributed with this source code.
  */
 
-namespace DraperStudio\LaravelBasket\Contracts;
+namespace DraperStudio\Tests\LaravelBasket;
+
+use GrahamCampbell\TestBenchCore\ServiceProviderTrait;
 
 /**
- * Interface Basket.
+ * This is the service provider test class.
  *
  * @author DraperStudio <hello@draperstudio.tech>
  */
-interface Basket
+class ServiceProviderTest extends AbstractTestCase
 {
-    //
+    use ServiceProviderTrait;
 }

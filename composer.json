@@ -1,13 +1,51 @@
 {
     "name": "draperstudio/laravel-basket",
+    "type": "library",
     "description": "Powerful Basket for Laravel 5",
+    "keywords": [
+        "draperstudio",
+        "laravel-basket"
+    ],
+    "homepage": "https://github.com/DraperStudio/laravel-basket",
+    "license": "MIT",
+    "authors": [{
+        "name": "DraperStudio",
+        "email": "hello@draperstudio.tech",
+        "homepage": "http://draperstudio.tech",
+        "role": "Developer"
+    }],
     "require": {
-        "php": ">=5.5.9",
-        "draperstudio/basket": "^1.0"
+        "php": "^5.6 || ^7.0",
+        "draperstudio/basket": "^0.1"
+    },
+    "require-dev": {
+        "graham-campbell/testbench": "^3.1",
+        "mockery/mockery": "^0.9.4",
+        "phpunit/phpunit": "^5.0",
+        "scrutinizer/ocular": "~1.1",
+        "squizlabs/php_codesniffer": "~2.3"
     },
     "autoload": {
         "psr-4": {
-            "DraperStudio\\LaravelBasket\\": "src"
+            "DraperStudio\\LaravelBasket\\": "src/"
         }
-    }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "DraperStudio\\Tests\\LaravelBasket\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "phpunit"
+    },
+    "config": {
+        "preferred-install": "dist"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
