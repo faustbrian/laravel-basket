@@ -490,9 +490,6 @@ class Basket
         };
     }
 
-    /**
-     *
-     */
     private function saveBasket()
     {
         $this->session->put($this->getIdentifier(), [
