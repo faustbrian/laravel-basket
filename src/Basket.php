@@ -11,7 +11,6 @@
 
 namespace BrianFaust\LaravelBasket;
 
-use Closure;
 use BrianFaust\Basket\Basket as BaseBasket;
 use BrianFaust\Basket\Collection;
 use BrianFaust\Basket\Contracts\Discount;
@@ -30,6 +29,7 @@ use BrianFaust\Basket\Product;
 use BrianFaust\Basket\Reconcilers\DefaultReconciler;
 use BrianFaust\Basket\Transformers\ArrayTransformer;
 use BrianFaust\LaravelBasket\Exceptions\BasketNotFoundException;
+use Closure;
 use Illuminate\Session\SessionManager;
 use Money\Currency;
 use Money\Money;
@@ -471,7 +471,7 @@ class Basket
         return function ($product) use ($currency, $actions) {
             foreach ($actions as $key => $value) {
                 if ($key === 'tags') {
-                    if (! is_array($value)) {
+                    if (!is_array($value)) {
                         $value = [$value];
                     }
 
@@ -488,8 +488,8 @@ class Basket
     private function saveBasket()
     {
         $this->session->put($this->getIdentifier(), [
-            'basket' => $this->getBasket(),
-            'order' => $this->getOrder(),
+            'basket'       => $this->getBasket(),
+            'order'        => $this->getOrder(),
             'jurisdiction' => $this->getJurisdiction(),
         ]);
 
