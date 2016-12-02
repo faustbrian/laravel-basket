@@ -11,8 +11,8 @@
 
 namespace BrianFaust\Tests\LaravelBasket;
 
-use GrahamCampbell\TestBench\AbstractPackageTestCase;
 use BrianFaust\LaravelBasket\ServiceProvider;
+use GrahamCampbell\TestBench\AbstractPackageTestCase;
 
 abstract class AbstractTestCase extends AbstractPackageTestCase
 {
