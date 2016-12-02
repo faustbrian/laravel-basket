@@ -11,14 +11,15 @@
 
 namespace BrianFaust\LaravelBasket;
 
-class ServiceProvider extends \Illuminate\Support\ServiceProvider
+use Illuminate\Support\ServiceProvider;
+
+class BasketServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.
      */
     public function boot()
     {
-        //
     }
 
     /**
@@ -26,6 +27,5 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
      */
     public function register()
     {
-        //
     }
 }
