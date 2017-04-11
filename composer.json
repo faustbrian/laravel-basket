@@ -10,7 +10,7 @@
     }],
     "require": {
         "php": "^7.1",
-        "faustbrian/basket": "^1.0"
+        "faustbrian/basket": "^2.0"
     },
     "require-dev": {
         "graham-campbell/testbench": "^3.2",
