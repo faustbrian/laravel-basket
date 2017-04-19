@@ -184,7 +184,7 @@ class Basket
 
         $this->reconcile();
     }
-    
+
     /**
      * @param Money $delivery
      */
