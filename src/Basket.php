@@ -456,7 +456,7 @@ class Basket
     /**
      * @return mixed
      */
-    private function getOrder()
+    public function getOrder()
     {
         return $this->order;
     }
