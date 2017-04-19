@@ -184,6 +184,16 @@ class Basket
 
         $this->reconcile();
     }
+    
+    /**
+     * @param Money $delivery
+     */
+    public function delivery(Money $delivery)
+    {
+        $this->basket->delivery($delivery);
+
+        $this->reconcile();
+    }
 
     /**
      * @param $sku
