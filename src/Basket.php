@@ -37,6 +37,7 @@ use BrianFaust\Basket\MetaData\TotalMetaData;
 use BrianFaust\Basket\MetaData\ValueMetaData;
 use BrianFaust\Basket\Processor;
 use BrianFaust\Basket\Product;
+use BrianFaust\Basket\Order;
 use BrianFaust\Basket\Reconcilers\DefaultReconciler;
 use BrianFaust\Basket\Transformers\ArrayTransformer;
 use BrianFaust\LaravelBasket\Exceptions\BasketNotFoundException;
@@ -70,6 +71,11 @@ class Basket
      * @var
      */
     private $order;
+
+    /**
+     * @var
+     */
+    private $rawOrder;
 
     /**
      * Basket constructor.
@@ -113,6 +119,7 @@ class Basket
 
         $this->setBasket($basket['basket']);
         $this->setOrder($basket['order']);
+        $this->setRawOrder($basket['raw_order']);
         $this->setJurisdiction($basket['jurisdiction']);
 
         return $this;
@@ -345,7 +352,7 @@ class Basket
         $processor = new Processor($reconciler, $meta);
         $transformer = new ArrayTransformer(new Converter());
 
-        $order = $processor->process($this->basket);
+        $this->setRawOrder($order = $processor->process($this->basket));
 
         $this->setOrder($transformer->transform($order));
 
@@ -480,6 +487,22 @@ class Basket
     }
 
     /**
+     * @return mixed
+     */
+    public function getRawOrder()
+    {
+        return $this->rawOrder;
+    }
+
+    /**
+     * @param array $rawOrder
+     */
+    private function setRawOrder(Order $rawOrder)
+    {
+        $this->rawOrder = $rawOrder;
+    }
+
+    /**
      * @param $actions
      *
      * @return Closure
@@ -510,6 +533,7 @@ class Basket
         $this->session->put($this->getIdentifier(), [
             'basket'       => $this->getBasket(),
             'order'        => $this->getOrder(),
+            'raw_order'    => $this->getRawOrder(),
             'jurisdiction' => $this->getJurisdiction(),
         ]);
 
