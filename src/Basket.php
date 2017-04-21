@@ -183,6 +183,18 @@ class Basket
     }
 
     /**
+     * @return void
+     */
+    public function flush()
+    {
+        foreach ($this->basket->products as $product) {
+            $this->basket->remove($product->sku);
+        }
+
+        $this->reconcile();
+    }
+
+    /**
      * @param Discount $discount
      */
     public function discount(Discount $discount)
