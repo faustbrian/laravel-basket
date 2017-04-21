@@ -215,6 +215,14 @@ class Basket
     }
 
     /**
+     * @return bool
+     */
+    public function isEmpty()
+    {
+        return $this->basket->products->isEmpty();
+    }
+
+    /**
      * @param $sku
      *
      * @return mixed
