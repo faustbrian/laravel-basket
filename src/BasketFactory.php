@@ -232,6 +232,14 @@ class BasketFactory
     }
 
     /**
+     * @return Order
+     */
+    public function getRawOrder()
+    {
+        return $rawOrder;
+    }
+    
+    /**
      * @param array $rawOrder
      */
     public function setRawOrder(?Order $rawOrder)
