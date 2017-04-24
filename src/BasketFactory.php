@@ -238,7 +238,7 @@ class BasketFactory
     {
         return $rawOrder;
     }
-    
+
     /**
      * @param array $rawOrder
      */
