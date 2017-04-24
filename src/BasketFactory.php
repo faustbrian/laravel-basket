@@ -226,7 +226,7 @@ class BasketFactory
     /**
      * @param array $order
      */
-    public function setOrder(array $order)
+    public function setOrder(?array $order)
     {
         $this->order = $order;
     }
@@ -234,7 +234,7 @@ class BasketFactory
     /**
      * @param array $rawOrder
      */
-    public function setRawOrder(Order $rawOrder)
+    public function setRawOrder(?Order $rawOrder)
     {
         $this->rawOrder = $rawOrder;
     }
@@ -259,6 +259,8 @@ class BasketFactory
             $this->setBasket(new Basket($manager->getJurisdiction()));
             $this->setJurisdiction($manager->getJurisdiction());
         }
+
+        $this->reconcile();
 
         return $this;
     }
