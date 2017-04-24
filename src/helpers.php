@@ -12,10 +12,12 @@
 if (!function_exists('basket')) {
     function basket($instance = null)
     {
+        $basket = app('basket');
+
         if ($instance) {
-            Basket::setInstance($instance);
+            $basket->setInstance($instance);
         }
 
-        return app('basket');
+        return $basket;
     }
 }
