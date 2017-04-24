@@ -10,6 +10,7 @@
     }],
     "require": {
         "php": "^7.1",
+        "faustbrian/laravel-service-provider": "^1.1",
         "faustbrian/basket": "^2.0"
     },
     "require-dev": {
@@ -19,12 +20,13 @@
     },
     "autoload": {
         "psr-4": {
-            "BrianFaust\\LaravelBasket\\": "src/"
-        }
+            "BrianFaust\\Laravel\\Basket\\": "src/"
+        },
+        "files": ["src/helpers.php"]
     },
     "autoload-dev": {
         "psr-4": {
-            "BrianFaust\\Tests\\LaravelBasket\\": "tests"
+            "BrianFaust\\Tests\\Laravel\\Basket\\": "tests"
         }
     },
     "config": {
@@ -32,7 +34,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "1.0-dev"
+            "dev-master": "3.0-dev"
         }
     },
     "minimum-stability": "dev",

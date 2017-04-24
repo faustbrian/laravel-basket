@@ -1,6 +1,5 @@
 <?php
 
-
 declare(strict_types=1);
 
 /*
@@ -12,7 +11,7 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace BrianFaust\Tests\LaravelBasket;
+namespace BrianFaust\Tests\Laravel\Basket;
 
 use GrahamCampbell\TestBenchCore\ServiceProviderTrait;
 

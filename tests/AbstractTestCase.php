@@ -1,6 +1,5 @@
 <?php
 
-
 declare(strict_types=1);
 
 /*
@@ -12,9 +11,9 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace BrianFaust\Tests\LaravelBasket;
+namespace BrianFaust\Tests\Laravel\Basket;
 
-use BrianFaust\LaravelBasket\ServiceProvider;
+use BrianFaust\Laravel\Basket\BasketServiceProvider;
 use GrahamCampbell\TestBench\AbstractPackageTestCase;
 
 abstract class AbstractTestCase extends AbstractPackageTestCase
@@ -26,8 +25,8 @@ abstract class AbstractTestCase extends AbstractPackageTestCase
      *
      * @return string
      */
-    protected function getServiceProviderClass($app): string
+    protected function getServiceProviderClass($app)
     {
-        return ServiceProvider::class;
+        return BasketServiceProvider::class;
     }
 }
