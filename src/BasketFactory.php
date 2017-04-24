@@ -236,7 +236,7 @@ class BasketFactory
      */
     public function getRawOrder()
     {
-        return $rawOrder;
+        return $this->rawOrder;
     }
 
     /**
