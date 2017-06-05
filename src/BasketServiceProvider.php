@@ -18,19 +18,19 @@ class BasketServiceProvider extends ServiceProvider
     /**
      * {@inheritdoc}
      */
-    public function boot(): void
+    public function boot()
     {
-        $this->publishConfig();
+        $this->publishes([
+            __DIR__.'/../config/laravel-basket.php' => config_path('laravel-basket.php'),
+        ], 'config');
     }
 
     /**
      * {@inheritdoc}
      */
-    public function register(): void
+    public function register()
     {
-        parent::register();
-
-        $this->mergeConfig();
+        $this->mergeConfigFrom(__DIR__.'/../config/laravel-basket.php', 'laravel-basket');
 
         $this->registerSession();
 
@@ -38,20 +38,9 @@ class BasketServiceProvider extends ServiceProvider
     }
 
     /**
-     * {@inheritdoc}
-     */
-    public function provides(): array
-    {
-        return [
-            'basket',
-            'basket.session',
-        ];
-    }
-
-    /**
      * Register the session driver used by the Basket.
      */
-    protected function registerSession(): void
+    protected function registerSession()
     {
         $this->app->bind('basket.session', function ($app) {
             $config = $app['config']->get('basket');
@@ -63,18 +52,10 @@ class BasketServiceProvider extends ServiceProvider
     /**
      * Register the Basket.
      */
-    protected function registerManager(): void
+    protected function registerManager()
     {
         $this->app->bind('basket', function ($app) {
             return new BasketManager($app['basket.session'], $app['events'], new $app['config']['basket']['jurisdiction']());
         });
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    protected function getPackageName(): string
-    {
-        return 'basket';
     }
 }

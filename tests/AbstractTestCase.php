@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 /*
  * This file is part of Laravel Basket.
  *
@@ -13,7 +11,6 @@ declare(strict_types=1);
 
 namespace BrianFaust\Tests\Laravel\Basket;
 
-use BrianFaust\Laravel\Basket\BasketServiceProvider;
 use GrahamCampbell\TestBench\AbstractPackageTestCase;
 
 abstract class AbstractTestCase extends AbstractPackageTestCase
@@ -27,6 +24,6 @@ abstract class AbstractTestCase extends AbstractPackageTestCase
      */
     protected function getServiceProviderClass($app)
     {
-        return BasketServiceProvider::class;
+        return \BrianFaust\Laravel\Basket\BasketServiceProvider::class;
     }
 }
