@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-if (!function_exists('basket')) {
+if (! function_exists('basket')) {
     function basket($instance = null)
     {
         $basket = app('basket');
