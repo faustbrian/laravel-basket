@@ -11,26 +11,26 @@
 
 namespace BrianFaust\Laravel\Basket;
 
+use Closure;
+use Money\Money;
+use BrianFaust\Basket\Order;
 use BrianFaust\Basket\Basket;
+use BrianFaust\Basket\Product;
+use BrianFaust\Basket\Converter;
+use BrianFaust\Basket\Processor;
 use BrianFaust\Basket\Collection;
 use BrianFaust\Basket\Contracts\Discount;
+use BrianFaust\Basket\MetaData\TaxMetaData;
 use BrianFaust\Basket\Contracts\Jurisdiction;
-use BrianFaust\Basket\Converter;
+use BrianFaust\Basket\MetaData\TotalMetaData;
+use BrianFaust\Basket\MetaData\ValueMetaData;
+use BrianFaust\Basket\MetaData\TaxableMetaData;
 use BrianFaust\Basket\MetaData\DeliveryMetaData;
 use BrianFaust\Basket\MetaData\DiscountMetaData;
 use BrianFaust\Basket\MetaData\ProductsMetaData;
 use BrianFaust\Basket\MetaData\SubtotalMetaData;
-use BrianFaust\Basket\MetaData\TaxableMetaData;
-use BrianFaust\Basket\MetaData\TaxMetaData;
-use BrianFaust\Basket\MetaData\TotalMetaData;
-use BrianFaust\Basket\MetaData\ValueMetaData;
-use BrianFaust\Basket\Order;
-use BrianFaust\Basket\Processor;
-use BrianFaust\Basket\Product;
 use BrianFaust\Basket\Reconcilers\DefaultReconciler;
 use BrianFaust\Basket\Transformers\ArrayTransformer;
-use Closure;
-use Money\Money;
 
 class BasketFactory
 {
@@ -335,7 +335,7 @@ class BasketFactory
         return function ($product) use ($currency, $actions) {
             foreach ($actions as $key => $value) {
                 if ($key === 'tags') {
-                    if (!is_array($value)) {
+                    if (! is_array($value)) {
                         $value = [$value];
                     }
 
