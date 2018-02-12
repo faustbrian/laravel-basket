@@ -13,9 +13,9 @@ declare(strict_types=1);
 
 namespace BrianFaust\Laravel\Basket;
 
-use Illuminate\Events\Dispatcher;
 use BrianFaust\Basket\Contracts\Jurisdiction;
 use BrianFaust\Laravel\Basket\Storage\StorageInterface;
+use Illuminate\Events\Dispatcher;
 
 class BasketManager
 {
@@ -186,7 +186,7 @@ class BasketManager
         }
 
         // create a new basket
-        if (! $this->storage->has()) {
+        if (!$this->storage->has()) {
             $this->basket = (new BasketFactory())->setManager($this);
 
             $this->storage->put($this->basket);
