@@ -5,32 +5,32 @@ declare(strict_types=1);
 /*
  * This file is part of Laravel Basket.
  *
- * (c) Brian Faust <hello@brianfaust.de>
+ * (c) Brian Faust <hello@basecode.sh>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace BrianFaust\Laravel\Basket;
+namespace Artisanry\Laravel\Basket;
 
-use BrianFaust\Basket\Basket;
-use BrianFaust\Basket\Collection;
-use BrianFaust\Basket\Contracts\Discount;
-use BrianFaust\Basket\Contracts\Jurisdiction;
-use BrianFaust\Basket\Converter;
-use BrianFaust\Basket\MetaData\DeliveryMetaData;
-use BrianFaust\Basket\MetaData\DiscountMetaData;
-use BrianFaust\Basket\MetaData\ProductsMetaData;
-use BrianFaust\Basket\MetaData\SubtotalMetaData;
-use BrianFaust\Basket\MetaData\TaxableMetaData;
-use BrianFaust\Basket\MetaData\TaxMetaData;
-use BrianFaust\Basket\MetaData\TotalMetaData;
-use BrianFaust\Basket\MetaData\ValueMetaData;
-use BrianFaust\Basket\Order;
-use BrianFaust\Basket\Processor;
-use BrianFaust\Basket\Product;
-use BrianFaust\Basket\Reconcilers\DefaultReconciler;
-use BrianFaust\Basket\Transformers\ArrayTransformer;
+use Artisanry\Basket\Basket;
+use Artisanry\Basket\Collection;
+use Artisanry\Basket\Contracts\Discount;
+use Artisanry\Basket\Contracts\Jurisdiction;
+use Artisanry\Basket\Converter;
+use Artisanry\Basket\MetaData\DeliveryMetaData;
+use Artisanry\Basket\MetaData\DiscountMetaData;
+use Artisanry\Basket\MetaData\ProductsMetaData;
+use Artisanry\Basket\MetaData\SubtotalMetaData;
+use Artisanry\Basket\MetaData\TaxableMetaData;
+use Artisanry\Basket\MetaData\TaxMetaData;
+use Artisanry\Basket\MetaData\TotalMetaData;
+use Artisanry\Basket\MetaData\ValueMetaData;
+use Artisanry\Basket\Order;
+use Artisanry\Basket\Processor;
+use Artisanry\Basket\Product;
+use Artisanry\Basket\Reconcilers\DefaultReconciler;
+use Artisanry\Basket\Transformers\ArrayTransformer;
 use Closure;
 use Money\Money;
 
@@ -250,7 +250,7 @@ class BasketFactory
     /**
      * Sets the basket instance.
      *
-     * @param \BrianFaust\Laravel\Basket\Basket $basket
+     * @param \Artisanry\Laravel\Basket\Basket $basket
      *
      * @return $this
      */

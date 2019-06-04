@@ -1,20 +1,20 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types = 1);
 
 /*
  * This file is part of Laravel Basket.
  *
- * (c) Brian Faust <hello@brianfaust.de>
+ * (c) Brian Faust <hello@basecode.sh>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace BrianFaust\Laravel\Basket;
+namespace Artisanry\Laravel\Basket;
 
-use BrianFaust\Basket\Contracts\Jurisdiction;
-use BrianFaust\Laravel\Basket\Storage\StorageInterface;
+use Artisanry\Basket\Contracts\Jurisdiction;
+use Artisanry\Laravel\Basket\Storage\StorageInterface;
 use Illuminate\Events\Dispatcher;
 
 class BasketManager
@@ -22,7 +22,7 @@ class BasketManager
     /**
      * The storage driver used by Basket.
      *
-     * @var \BrianFaust\Laravel\Basket\Storage\StorageInterface
+     * @var \Artisanry\Laravel\Basket\Storage\StorageInterface
      */
     protected $storage;
 
@@ -36,21 +36,21 @@ class BasketManager
     /**
      * The basket factory instance.
      *
-     * @var \BrianFaust\Laravel\Basket\BasketFactory
+     * @var \Artisanry\Laravel\Basket\BasketFactory
      */
     protected $basket;
 
     /**
      * The basket jurisdiction.
      *
-     * @var \BrianFaust\Basket\Contracts\Jurisdiction
+     * @var \Artisanry\Basket\Contracts\Jurisdiction
      */
     protected $jurisdiction;
 
     /**
      * Constructor.
      *
-     * @param \BrianFaust\Laravel\Basket\StorageInterface $storage
+     * @param \Artisanry\Laravel\Basket\StorageInterface $storage
      * @param \Illuminate\Events\Dispatcher               $dispatcher
      */
     public function __construct(StorageInterface $storage, Dispatcher $dispatcher, Jurisdiction $jurisdiction)
@@ -93,7 +93,7 @@ class BasketManager
     /**
      * Sets the storage driver.
      *
-     * @param \BrianFaust\Laravel\Basket\Storage\StorageInterface $storage
+     * @param \Artisanry\Laravel\Basket\Storage\StorageInterface $storage
      */
     public function setStorage(StorageInterface $storage)
     {
@@ -123,7 +123,7 @@ class BasketManager
     /**
      * Returns the Basket jurisdiction.
      *
-     * @return \BrianFaust\Basket\Contracts\Jurisdiction
+     * @return \Artisanry\Basket\Contracts\Jurisdiction
      */
     public function getJurisdiction()
     {
@@ -133,7 +133,7 @@ class BasketManager
     /**
      * Sets the Basket jurisdiction.
      *
-     * @param \BrianFaust\Basket\Contracts\Jurisdiction $jurisdiction
+     * @param \Artisanry\Basket\Contracts\Jurisdiction $jurisdiction
      */
     public function setJurisdiction(Jurisdiction $jurisdiction)
     {
@@ -148,7 +148,7 @@ class BasketManager
      */
     public function fire($event, $data)
     {
-        $this->dispatcher->fire("faustbrian.basket.{$event}", $data);
+        $this->dispatcher->fire("artisanry.basket.{$event}", $data);
     }
 
     /**
@@ -167,7 +167,7 @@ class BasketManager
     /**
      * Returns the basket contents.
      *
-     * @return \BrianFaust\Laravel\Basket\BasketFactory
+     * @return \Artisanry\Laravel\Basket\BasketFactory
      */
     private function getFactory()
     {

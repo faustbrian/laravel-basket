@@ -1,16 +1,16 @@
 {
-    "name": "faustbrian/laravel-basket",
+    "name": "artisanry/basket",
     "description": "Powerful Basket for Laravel 5",
-    "keywords": ["laravel", "framework", "Laravel-Basket", "Laravel Basket", "Brian Faust", "faustbrian"],
+    "keywords": ["laravel", "framework", "Laravel-Basket", "Laravel Basket"],
     "license": "MIT",
     "authors": [{
         "name": "Brian Faust",
-        "email": "hello@brianfaust.me",
-        "homepage": "https://brianfaust.me"
+        "email": "hello@basecode.sh",
+        "homepage": "https://basecode.sh"
     }],
     "require": {
         "php": "^7.1",
-        "faustbrian/laravel-service-provider": "^1.1",
+        "artisanry/service-provider": "^1.1",
         "faustbrian/basket": "^2.0"
     },
     "require-dev": {
@@ -20,13 +20,13 @@
     },
     "autoload": {
         "psr-4": {
-            "BrianFaust\\Laravel\\Basket\\": "src/"
+            "Artisanry\\Laravel\\Basket\\": "src/"
         },
         "files": ["src/helpers.php"]
     },
     "autoload-dev": {
         "psr-4": {
-            "BrianFaust\\Tests\\Laravel\\Basket\\": "tests"
+            "Artisanry\\Tests\\Laravel\\Basket\\": "tests"
         }
     },
     "config": {
@@ -39,10 +39,10 @@
         },
         "laravel": {
             "providers": [
-                "BrianFaust\\Basket\\BasketServiceProvider"
+                "Artisanry\\Basket\\BasketServiceProvider"
             ],
             "aliases": {
-                "Basket": "BrianFaust\\Basket\\Facades\\Basket"
+                "Basket": "Artisanry\\Basket\\Facades\\Basket"
             }
         }
     },

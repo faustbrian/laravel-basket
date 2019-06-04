@@ -1,17 +1,17 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types = 1);
 
 /*
  * This file is part of Laravel Basket.
  *
- * (c) Brian Faust <hello@brianfaust.de>
+ * (c) Brian Faust <hello@basecode.sh>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace BrianFaust\Laravel\Basket\Storage;
+namespace Artisanry\Laravel\Basket\Storage;
 
 use Illuminate\Session\Store as SessionStore;
 
@@ -22,7 +22,7 @@ class IlluminateSession implements StorageInterface
      *
      * @var string
      */
-    protected $key = 'faustbrian_basket';
+    protected $key = 'artisanry_basket';
 
     /**
      * The instance that is being used.

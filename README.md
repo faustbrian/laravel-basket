@@ -1,18 +1,18 @@
 # Laravel Basket
 
-[![Build Status](https://img.shields.io/travis/faustbrian/Laravel-Basket/master.svg?style=flat-square)](https://travis-ci.org/faustbrian/Laravel-Basket)
-[![PHP from Packagist](https://img.shields.io/packagist/php-v/faustbrian/laravel-basket.svg?style=flat-square)]()
-[![Latest Version](https://img.shields.io/github/release/faustbrian/Laravel-Basket.svg?style=flat-square)](https://github.com/faustbrian/Laravel-Basket/releases)
-[![License](https://img.shields.io/packagist/l/faustbrian/Laravel-Basket.svg?style=flat-square)](https://packagist.org/packages/faustbrian/Laravel-Basket)
+[![Build Status](https://img.shields.io/travis/artisanry/Basket/master.svg?style=flat-square)](https://travis-ci.org/artisanry/Basket)
+[![PHP from Packagist](https://img.shields.io/packagist/php-v/artisanry/basket.svg?style=flat-square)]()
+[![Latest Version](https://img.shields.io/github/release/artisanry/Basket.svg?style=flat-square)](https://github.com/artisanry/Basket/releases)
+[![License](https://img.shields.io/packagist/l/artisanry/Basket.svg?style=flat-square)](https://packagist.org/packages/artisanry/Basket)
 
-Check https://github.com/BrianFaust/Basket to see how the underlying Basket works.
+Check https://github.com/Artisanry/Basket to see how the underlying Basket works.
 
 ## Installation
 
 Require this package, with [Composer](https://getcomposer.org/), in the root directory of your project.
 
 ``` bash
-$ composer require faustbrian/laravel-basket
+$ composer require artisanry/basket
 ```
 
 ## Usage
@@ -22,7 +22,7 @@ $ composer require faustbrian/laravel-basket
 This function should be used when you want to built your "Product"-Objects on your own.
 
 ``` php
-use BrianFaust\LaravelBasket\Basket;
+use Artisanry\LaravelBasket\Basket;
 
 get('/', function (Basket $basket) {
     // Setup the Basket for UK
@@ -53,7 +53,7 @@ LaravelBasket. It will create the "Product"-Object and build all objects that
 are required like "Money"-Objects for delivery costs.
 
 ``` php
-use BrianFaust\LaravelBasket\Basket;
+use Artisanry\LaravelBasket\Basket;
 
 get('/', function (Basket $basket) {
     // Setup the Basket for UK
@@ -198,7 +198,7 @@ $ phpunit
 
 ## Security
 
-If you discover a security vulnerability within this package, please send an e-mail to hello@brianfaust.me. All security vulnerabilities will be promptly addressed.
+If you discover a security vulnerability within this package, please send an e-mail to hello@basecode.sh. All security vulnerabilities will be promptly addressed.
 
 ## Credits
 
@@ -207,4 +207,4 @@ If you discover a security vulnerability within this package, please send an e-m
 
 ## License
 
-[MIT](LICENSE) © [Brian Faust](https://brianfaust.me)
+[MIT](LICENSE) © [Brian Faust](https://basecode.sh)
