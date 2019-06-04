@@ -1,15 +1,22 @@
 {
     "name": "artisanry/basket",
     "description": "Powerful Basket for Laravel 5",
-    "keywords": ["laravel", "framework", "Laravel-Basket", "Laravel Basket"],
+    "keywords": [
+        "laravel",
+        "framework",
+        "Laravel-Basket",
+        "Laravel Basket"
+    ],
     "license": "MIT",
-    "authors": [{
-        "name": "Brian Faust",
-        "email": "hello@basecode.sh",
-        "homepage": "https://basecode.sh"
-    }],
+    "authors": [
+        {
+            "name": "Brian Faust",
+            "email": "hello@basecode.sh",
+            "homepage": "https://basecode.sh"
+        }
+    ],
     "require": {
-        "php": "^7.1",
+        "php": "^7.2",
         "artisanry/service-provider": "^1.1",
         "faustbrian/basket": "^2.0"
     },
@@ -22,7 +29,9 @@
         "psr-4": {
             "Artisanry\\Laravel\\Basket\\": "src/"
         },
-        "files": ["src/helpers.php"]
+        "files": [
+            "src/helpers.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {
