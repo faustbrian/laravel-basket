@@ -1,6 +1,6 @@
 <?php
 
-declare (strict_types = 1);
+declare(strict_types=1);
 
 /*
  * This file is part of Laravel Basket.
@@ -51,7 +51,7 @@ class BasketManager
      * Constructor.
      *
      * @param \Artisanry\Laravel\Basket\StorageInterface $storage
-     * @param \Illuminate\Events\Dispatcher               $dispatcher
+     * @param \Illuminate\Events\Dispatcher              $dispatcher
      */
     public function __construct(StorageInterface $storage, Dispatcher $dispatcher, Jurisdiction $jurisdiction)
     {
