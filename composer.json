@@ -17,7 +17,7 @@
     ],
     "require": {
         "php": "^7.2",
-        "artisanry/service-provider": "^1.1",
+        "artisanry/service-provider": "^2.1",
         "faustbrian/basket": "^2.0"
     },
     "require-dev": {
