@@ -15,7 +15,6 @@ namespace Artisanry\Laravel\Basket;
 
 use Artisanry\Basket\Basket;
 use Artisanry\Basket\Collection;
-use Artisanry\Basket\Contracts\Discount;
 use Artisanry\Basket\Contracts\Jurisdiction;
 use Artisanry\Basket\Converter;
 use Artisanry\Basket\MetaData\DeliveryMetaData;
